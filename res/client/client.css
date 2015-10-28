@@ -1,4 +1,28 @@
+/* This is the main css file for the FAF client. Here you can change most of the looks in the client.
+The rest of the res folder is also style-able. If you want to create a theme, then copy the res folder 
+over to the themes directory, change what you want, and delete what you didnt change to make your theme smaller.
 
+this css file is split into several categories - general rules, which change how multipla parts of the client look,
+and specific sections on each tab which only affect elements in that tab.
+
+be sure to read the documentation on css files and how to write in them! also look inside the corresponding .ui files
+to see variables that you can change.
+ */
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+/**        The window control buttons - minimise, maximise, close            **/
  *[warning="true"]
 {
     color:lightgrey;
@@ -23,6 +47,14 @@
 
 }
 
+
+
+
+
+
+
+
+/**                    The menus in the top right corner                     **/
 QMenuBar
 {
     background-color: rgba(0,0,0,0);
@@ -38,7 +70,7 @@ QMenuBar::item
      background: #a8a8a8;
  }
 
- QMenuBar::item:pressed {
+ QMenuBar::item:pressed { /*when clicked on */
      background: #888888;
  }
 
@@ -81,21 +113,25 @@ QMenuBar::item
      height: 13px;
  }
 
+
  
-QTabWidget #lobbyTab,#gamesTab,#ladderTab,#tournamentTab,#coopTab,#replaysTab,#vaultsTab,#mapsTab,#modsTab
-{ /* sets background color for every widget under a tab */
-        background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(15, 15, 15, 200), stop:1 #2f2f2f);
-        border-radius: 10px;
-}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
-QTabWidget#mainTabs::tab-bar
-{
-     left: 25px; /* move to the right by 25px */
-}
 
 
 
-/* Central area background */
+/* Central area background - this sets the background on the main faf lobby, and other windows it makes*/
 QWidget#centralwidget, QProgressDialog, QWindow, QWizard
 {
     color: silver;
@@ -105,9 +141,22 @@ QWidget#centralwidget, QProgressDialog, QWindow, QWizard
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #FFFFFF, stop:0.1 #000000, stop:1 #1F1F1F);
 }
 
+/*here we can style all the tabs in the faf client*/
+QTabWidget #lobbyTab,#gamesTab,#ladderTab,#tournamentTab,#coopTab,#replaysTab,#vaultsTab,#mapsTab,#modsTab
+{ 
+        background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(15, 15, 15, 200), stop:1 #2f2f2f);
+        border-radius: 10px;
+}
+
+QTabWidget#mainTabs::tab-bar
+{
+     left: 25px; /* move the bottom tab bar to the right by 25px */
+}
+
+
 
 QTabWidget#mainTabs::pane
-{ /* The tab widget frame */
+{ 
 
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(15, 15, 15, 200), stop:1 #2f2f2f);
     border-radius: 5px;
@@ -115,6 +164,7 @@ QTabWidget#mainTabs::pane
 }
 
 /* Style the tab using the tab sub-control. Note that it reads QTabBar _not_ QTabWidget */
+
 QTabWidget#mainTabs > QTabBar::tab
 {
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:1 #555555, stop:0 #333333);
@@ -147,7 +197,18 @@ QTabWidget#mainTabs > QTabBar::tab:!selected
     margin-bottom: 8px; /* make non-selected tabs look smaller */
 }
 
-/* Typical widget controls (top tabs, etc) */
+
+
+
+
+
+
+
+
+
+
+
+/* These are the tabs at the top of the main tabs - used to switch between subtabs in the client. */
 
 QTabWidget#topTabs::pane
 {
@@ -199,6 +260,19 @@ QTabWidget#topTabs > QTabBar::tab:selected
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+/*These are splitters - structural elements in the lobby - presently used in the chat tab*/
 QSplitter::handle 
 {
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #0F0F0F, stop:1 #2f2f2f);
@@ -223,7 +297,16 @@ QSplitter::handle:hover
 
 
 
-/* Text controls */
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+/* Text controls - all the areas you can input text into */
 QTextEdit, QPlainTextEdit, QLineEdit, QListWidget, QTableWidget, QTreeWidget, QFrame#rankedFrame, QFrame#teamFaction, QFrame#teamSearch
 {
     border-style:solid;
@@ -239,6 +322,30 @@ QTextEdit, QPlainTextEdit, QLineEdit, QListWidget, QTableWidget, QTreeWidget, QF
 
 }
 
+/* if you want to style these widgets separately, uncomment this code and remove their names from the above part!
+QListWidget, QTableWidget, QTreeWidget, QFrame#rankedFrame, QFrame#teamFaction, QFrame#teamSearch
+{
+    border-style:solid;
+    border-width:1px;
+    border-color:#353535;
+    color:silver;
+    padding:5px;
+    background-color:#202025;
+    border-top-right-radius : 5px;
+    border-top-left-radius : 5px;
+    border-bottom-left-radius : 5px;
+    border-bottom-right-radius : 5px;
+
+}
+*/
+
+
+
+
+
+
+
+
 /* Modlist */
 QFrame#rankedFrame
 {
@@ -251,6 +358,14 @@ QFrame#rankedFrame
     border-bottom-left-radius : 5px;
     border-bottom-right-radius : 5px;
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -274,6 +389,12 @@ QTableWidget::item:selected, QListWidget::item:previously-selected
 {
     border: none;
 }
+
+
+
+
+
+
 
 
 
@@ -303,24 +424,7 @@ QListWidget#modList::item:selected
     color: #20A080;
 }
 
-/* for tournament*/
-QListWidget#tourneyList
-{
-    background-image: url('%THEMEPATH%/stripe.png');
-    background-position: top left;
-    background-repeat:repeat-x;
 
-    border-style:solid;
-    border-width:1px;
-    border-color:#353535;
-    color:silver;
-    padding:5px;
-    background-color:#0F0F0F;
-    border-top-right-radius : 5px;
-    border-top-left-radius : 5px;
-    border-bottom-left-radius : 5px;
-    border-bottom-right-radius : 5px;
-}
  
 QTreeWidget::item:hover
 {
@@ -417,6 +521,15 @@ QScrollBar::sub-page
 }
 
 
+
+
+
+
+
+
+
+
+/* labels - the small texts you see around the client */
 QLabel#labelJoinGame,#labelHostGame,#labelAutomatch,#labelMyReplays,#labelLiveReplays,#labelHostTournament,#labelJoinTournament,#joinLabel,#labelTeamManagement
 {
     color:white;
@@ -433,7 +546,7 @@ QGroupBox
     background-color: grey;
 }
 
-/* Used for dialogs*/
+/* Used for dialogs - the small windows that popup when you host a game and similar*/
 QDialog 
 {
     background-color: #575656;
@@ -444,7 +557,56 @@ QCheckBox#spoilerCheckbox
     color: white;
 }
 
-/* Used for Ranked Buttons only at the moment*/
+
+
+QComboBox, QComboBox:selectec
+{
+    color:orange;
+    background-color: #575656;
+}
+
+
+
+QComboBox QAbstractItemView {
+    border: 2px solid darkgray;
+    selection-background-color: #575656;
+    background-color: #575656;
+}
+
+/* above contains an error(?), fixed here but not included
+QComboBox, QAbstractItemView {
+    border: 2px solid darkgray;
+    selection-background-color: #575656;
+    background-color: #575656;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*                                          chat tab                                           */
+
+
+
+
+
+
+
+
+
+
+
+/*                                       find games tab                                        */
+
+/* Used for Ranked Buttons only at the moment - the buttons used to start a ranked game*/
 QToolButton::pressed 
 {
     border: none;
@@ -476,16 +638,96 @@ QToolButton::checked
     border-radius : 5px;
  }
 
-QComboBox, QComboBox:selectec
+
+
+
+
+
+/*                                          coop tab                                           */
+
+
+
+
+
+
+
+
+
+
+/*                                        tutorials tab                                        */
+
+
+
+
+
+
+
+
+
+
+/*                                      leaderboards tab                                       */
+
+
+
+
+
+
+
+
+
+
+/*                                       tournament tab                                        */
+
+
+QListWidget#tourneyList
 {
-    color:orange;
-    background-color: #575656;
+    background-image: url('%THEMEPATH%/stripe.png');
+    background-position: top left;
+    background-repeat:repeat-x;
+
+    border-style:solid;
+    border-width:1px;
+    border-color:#353535;
+    color:silver;
+    padding:5px;
+    background-color:#0F0F0F;
+    border-top-right-radius : 5px;
+    border-top-left-radius : 5px;
+    border-bottom-left-radius : 5px;
+    border-bottom-right-radius : 5px;
 }
 
 
 
-QComboBox QAbstractItemView {
-    border: 2px solid darkgray;
-    selection-background-color: #575656;
-    background-color: #575656;
-}
+
+
+
+/*                                         streams tab                                         */
+
+
+
+
+
+
+
+
+
+/*                                         replays tab                                         */
+
+
+
+
+
+
+
+
+
+
+/*                                      map and mod vault                                      */
+
+
+
+
+
+
+
