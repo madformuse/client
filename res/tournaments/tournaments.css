@@ -11,7 +11,7 @@ QListWidget::item
 
 QListWidget::item::hover
 {
-    background-color: #ff0000;
+    background-color: #0000ff;
 }
 
 QListWidget::item::selected

@@ -642,7 +642,12 @@ class ClientWindow(FormClass, BaseClass):
 
         # Nice helper for the developers
         self.menuTheme.addSeparator()
-        self.menuTheme.addAction("Reload Stylesheet", lambda: self.setStyleSheet(util.readstylesheet("client/client.css")))
+
+        def reload_stylesheet():
+            self.setStyleSheet(util.readstylesheet("client/client.css"))
+            self.tourneys.setStyleSheet(util.readstylesheet("tournaments/tournaments.css"))
+
+        self.menuTheme.addAction("Reload Stylesheet", lambda: reload_stylesheet())
 
 
 
