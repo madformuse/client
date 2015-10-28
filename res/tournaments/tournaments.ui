@@ -50,7 +50,7 @@
         <widget class="QListWidget" name="tourneyList">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>4</horstretch>
+           <horstretch>2</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
@@ -76,7 +76,7 @@
           <enum>QAbstractItemView::ScrollPerPixel</enum>
          </property>
          <property name="movement">
-          <enum>QListView::Free</enum>
+          <enum>QListView::Static</enum>
          </property>
          <property name="resizeMode">
           <enum>QListView::Adjust</enum>

@@ -78,6 +78,8 @@ class TournamentsWidget(FormClass, BaseClass):
                 self.tourneyList.addItem(self.tourneys[uid])
                 item_widget = util.loadUi("tournaments/tournamentitem.ui")
                 item_widget.name.setText("Testing 1, 2, 3, 4")
+                item_widget.image.setPixmap(util.pixmap("tournaments/tournament.png").scaledToWidth(300))
+                # item_widget.image.setPixmap(util.pixmap("tournaments/tournament.png"))
                 self.tourneyList.setItemWidget(self.tourneys[uid], item_widget)
                 self.tourneys[uid].setSizeHint(item_widget.sizeHint())
                 self.tourneys[uid].update(tournaments[uid], self.client)

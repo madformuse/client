@@ -20,3 +20,5 @@ QListWidget::item::selected
 }
 
 QLabel { color: white }
+
+QListWidget QLabel#image { width : 200px }
