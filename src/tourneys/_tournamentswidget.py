@@ -79,6 +79,7 @@ class TournamentsWidget(FormClass, BaseClass):
                 item_widget = util.loadUi("tournaments/tournamentitem.ui")
                 item_widget.name.setText(tournaments[uid]["name"])
                 item_widget.image.setPixmap(util.pixmap("tournaments/tournament.png").scaledToWidth(300))
+                item_widget.participant_count.setText(str(len(tournaments[uid]["participants"])) + " players")
                 # item_widget.image.setPixmap(util.pixmap("tournaments/tournament.png"))
                 self.tourneyList.setItemWidget(self.tourneys[uid], item_widget)
                 self.tourneys[uid].setSizeHint(item_widget.sizeHint())
