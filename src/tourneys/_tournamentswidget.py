@@ -73,11 +73,11 @@ class TournamentsWidget(FormClass, BaseClass):
         #self.tourneyList.clear()
         tournaments = message["data"]
         for uid in tournaments :
-            if not uid in self.tourneys :
+            if not uid in self.tourneys:
                 self.tourneys[uid] = TourneyItem(self, uid)
                 self.tourneyList.addItem(self.tourneys[uid])
                 item_widget = util.loadUi("tournaments/tournamentitem.ui")
-                item_widget.name.setText("Testing 1, 2, 3, 4")
+                item_widget.name.setText(tournaments[uid]["name"])
                 item_widget.image.setPixmap(util.pixmap("tournaments/tournament.png").scaledToWidth(300))
                 # item_widget.image.setPixmap(util.pixmap("tournaments/tournament.png"))
                 self.tourneyList.setItemWidget(self.tourneys[uid], item_widget)

@@ -25,16 +25,6 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="start">
-     <property name="text">
-      <string>start time</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item>
     <widget class="QLabel" name="image">
      <property name="text">
       <string>Image</string>
