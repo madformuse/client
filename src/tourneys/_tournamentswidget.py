@@ -27,7 +27,7 @@ class TournamentsWidget(FormClass, BaseClass):
         #Dictionary containing our actual tournaments.
         self.tourneys = {}
   
-        self.tourneyList.setItemDelegate(TourneyItemDelegate(self))
+        #self.tourneyList.setItemDelegate(TourneyItemDelegate(self))
         
         self.tourneyList.itemDoubleClicked.connect(self.tourneyDoubleClicked)
         
@@ -76,6 +76,10 @@ class TournamentsWidget(FormClass, BaseClass):
             if not uid in self.tourneys :
                 self.tourneys[uid] = TourneyItem(self, uid)
                 self.tourneyList.addItem(self.tourneys[uid])
+                item_widget = util.loadUi("tournaments/tournamentitem.ui")
+                item_widget.name.setText("Testing 1, 2, 3, 4")
+                self.tourneyList.setItemWidget(self.tourneys[uid], item_widget)
+                self.tourneys[uid].setSizeHint(item_widget.sizeHint())
                 self.tourneys[uid].update(tournaments[uid], self.client)
             else :
                 self.tourneys[uid].update(tournaments[uid], self.client)

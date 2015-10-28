@@ -97,14 +97,15 @@ class TourneyItem(QtGui.QListWidgetItem):
                 self.client.autoJoin.emit([channel])
                 QtGui.QMessageBox.information(self.client, "Tournament started !", "Your tournament has started !\nYou have automatically joined the tournament channel.")
 
-        playerstring = "<br/>".join(self.playersname)
+        #playerstring = "<br/>".join(self.playersname)
+        playerstring = "placeholder"
 
         self.viewtext = self.FORMATTER_SWISS_OPEN.format(title=self.title, description=self.description, numreg=str(len(self.players)), playerstring=playerstring)
-        self.setText(self.viewtext)
+        #self.setText(self.viewtext)
         
 
     def display(self):
-        return self.viewtext
+        return ""
  
  
     def data(self, role):

@@ -14,3 +14,9 @@ QListWidget::item::hover
     background-color: #ff0000;
 }
 
+QListWidget::item::selected
+{
+    background-color: grey;
+}
+
+QLabel { color: white }
