@@ -30,7 +30,7 @@ class TournamentsWidget(FormClass, BaseClass):
         #self.tourneyList.setItemDelegate(TourneyItemDelegate(self))
         
         self.tourneyList.itemDoubleClicked.connect(self.tourneyDoubleClicked)
-        
+        self.tourneyList.itemClicked.connect(self.displaySelected)
         self.tourneysTab = {}
 
         #Special stylesheet       
@@ -39,6 +39,8 @@ class TournamentsWidget(FormClass, BaseClass):
         self.updateTimer = QtCore.QTimer(self)
         self.updateTimer.timeout.connect(self.updateTournaments)
         self.updateTimer.start(600000)
+
+        self.tourneyList.setCurrentRow(1)
         
     
     def showEvent(self, event):
@@ -68,7 +70,13 @@ class TournamentsWidget(FormClass, BaseClass):
             if reply == QtGui.QMessageBox.Yes:   
                 self.tourneyServer.send(dict(command="remove_participant", uid=item.uid, login=self.client.login)) 
     
-                
+    @QtCore.pyqtSlot(QtGui.QListWidgetItem)
+    def displaySelected(self, selected):
+        self.name.setText(selected.title)
+        self.image.setPixmap(util.pixmap("tournaments/tournament.png"))
+        self.participant_count.setText(str(len(selected.players)))
+        self.description.setText(selected.description)
+
     def handle_tournaments_info(self, message):
         #self.tourneyList.clear()
         tournaments = message["data"]
